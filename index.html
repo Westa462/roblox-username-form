@@ -27,21 +27,18 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
 
-    input {
+    input, button {
       padding: 12px;
       width: 100%;
       border-radius: 10px;
       border: none;
       margin: 10px 0;
+      font-size: 16px;
     }
 
     button {
-      padding: 12px;
-      width: 100%;
       background: #7289da;
       color: white;
-      border: none;
-      border-radius: 10px;
       cursor: pointer;
     }
 
@@ -57,13 +54,18 @@
 <body>
   <div class="card">
     <h2>Submit Your Roblox Username</h2>
-    <p>✅ Like & Subscribe to my channel first!</p>
-    <a href="https://youtube.com/@Westa-h8m" target="_blank">
-      <button>Go to My Channel</button>
-    </a>
-    <br /><br />
-    <button onclick="showForm()">I Have Subscribed</button>
+    <p>✅ Like & Subscribe to my channel and watch the video first!</p>
 
+    <!-- BUTTON 1: Go to Channel -->
+    <button onclick="goToChannel()">Go to My Channel</button>
+
+    <!-- BUTTON 2: Go to Video -->
+    <button onclick="goToVideo()">Watch Required Video</button>
+
+    <!-- BUTTON 3: Confirm -->
+    <button onclick="showForm()">I Have Subscribed and Watched</button>
+
+    <!-- FORM SECTION -->
     <div id="form-section">
       <form action="https://formspree.io/f/mrbqwewz" method="POST">
         <input type="text" name="username" placeholder="Your Roblox Username" required />
@@ -73,8 +75,25 @@
   </div>
 
   <script>
+    let channelVisited = false;
+    let videoVisited = false;
+
+    function goToChannel() {
+      channelVisited = true;
+      window.open("https://youtube.com/@Westa-h8m", "_blank");
+    }
+
+    function goToVideo() {
+      videoVisited = true;
+      window.open("https://www.youtube.com/watch?v=B_DoQPdEImc", "_blank");
+    }
+
     function showForm() {
-      document.getElementById("form-section").style.display = "block";
+      if (channelVisited && videoVisited) {
+        document.getElementById("form-section").style.display = "block";
+      } else {
+        alert("Please visit both the channel and the video before submitting.");
+      }
     }
   </script>
 </body>

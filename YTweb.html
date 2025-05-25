@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roblox Username Submit</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #1e1e2f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: #2e2e4d;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    input {
+      padding: 12px;
+      width: 100%;
+      border-radius: 10px;
+      border: none;
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 12px;
+      width: 100%;
+      background: #7289da;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #5f73c1;
+    }
+
+    #form-section {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Submit Your Roblox Username</h2>
+    <p>✅ Like & Subscribe to my channel first!</p>
+    <a href="https://youtube.com/@Westa-h8m" target="_blank">
+      <button>Go to My Channel</button>
+    </a>
+    <br /><br />
+    <button onclick="showForm()">I Have Subscribed</button>
+
+    <div id="form-section">
+      <form action="https://formspree.io/f/mrbqwewz" method="POST">
+        <input type="text" name="username" placeholder="Your Roblox Username" required />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showForm() {
+      document.getElementById("form-section").style.display = "block";
+    }
+  </script>
+</body>
+</html>

@@ -125,6 +125,7 @@
 
     <button onclick="goToChannel()">Go to My Channel</button>
     <button onclick="goToVideo()">Watch Required Video</button>
+    <button onclick="goToExtraSite()">Visit Extra Website</button>
     <button onclick="showForm()">I Have Subscribed and Watched</button>
 
     <div id="form-section">
@@ -138,8 +139,7 @@
   <script>
     let channelVisited = false;
     let videoVisited = false;
-
-
+    let extraSiteVisited = false;
 
     function goToChannel() {
       channelVisited = true;
@@ -151,12 +151,16 @@
       window.open("https://www.youtube.com/watch?v=B_DoQPdEImc", "_blank");
     }
 
-    
+    function goToExtraSite() {
+      extraSiteVisited = true;
+      window.open("https://linktr.ee/westayt", "_blank"); // <-- Replace with your extra website URL
+    }
+
     function showForm() {
-      if (channelVisited && videoVisited) {
+      if (channelVisited && videoVisited && extraSiteVisited) {
         document.getElementById("form-section").style.display = "block";
       } else {
-        alert("Please visit both the channel and the video first.");
+        alert("Please visit the channel, the video, and the extra website first.");
       }
     }
   </script>
